@@ -87,11 +87,12 @@ static void _init_system(GlobalState *GLOBAL_STATE)
 
     switch (GLOBAL_STATE->device_model) {
     case DEVICE_NERDQAXE_PLUS:
+    case DEVICE_NERDOCTAXE_PLUS:
         EMC2302_init(nvs_config_get_u16(NVS_CONFIG_INVERT_FAN_POLARITY, 1));
         break;
     default:
+        break;
     }
-
     vTaskDelay(500 / portTICK_PERIOD_MS);
 
 #ifdef DISPLAY_TTGO

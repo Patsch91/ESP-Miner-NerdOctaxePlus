@@ -21,6 +21,7 @@ typedef enum
 {
     DEVICE_UNKNOWN = -1,
     DEVICE_NERDQAXE_PLUS,
+    DEVICE_NERDOCTAXE_PLUS,
 } DeviceModel;
 
 typedef enum
