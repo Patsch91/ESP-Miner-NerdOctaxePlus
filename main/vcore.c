@@ -53,6 +53,7 @@ void VCORE_init(float volts, GlobalState *global_state) {
 void VCORE_LDO_enable(GlobalState *global_state) {
     switch (global_state->device_model) {
     case DEVICE_NERDQAXE_PLUS:
+    case DEVICE_NERDOCTAXE_PLUS:
         ESP_LOGI(TAG, "Enabled LDOs");
         gpio_set_level(LDO_EN_PIN, 1);
         break;
@@ -63,6 +64,7 @@ void VCORE_LDO_enable(GlobalState *global_state) {
 void VCORE_LDO_disable(GlobalState *global_state) {
     switch (global_state->device_model) {
     case DEVICE_NERDQAXE_PLUS:
+    case DEVICE_NERDOCTAXE_PLUS:
         ESP_LOGI(TAG, "Disable LDOs");
         gpio_set_level(LDO_EN_PIN, 0);
         break;
@@ -75,6 +77,7 @@ bool VCORE_set_voltage(float core_voltage, GlobalState *global_state)
 {
     switch (global_state->device_model) {
     case DEVICE_NERDQAXE_PLUS:
+    case DEVICE_NERDOCTAXE_PLUS:
         ESP_LOGI(TAG, "Set ASIC voltage = %.3fV", core_voltage);
         TPS53647_set_vout(core_voltage);
         break;
@@ -88,6 +91,7 @@ uint16_t VCORE_get_voltage_mv(GlobalState *global_state)
 {
     switch (global_state->device_model) {
     case DEVICE_NERDQAXE_PLUS:
+    case DEVICE_NERDOCTAXE_PLUS:
         return TPS53647_get_vout() * 1000.0f;
     default:
     }

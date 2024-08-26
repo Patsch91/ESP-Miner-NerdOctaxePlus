@@ -27,6 +27,7 @@ static bool fan_sense_pass(GlobalState *GLOBAL_STATE)
     uint16_t fan_speed = 0;
     switch (GLOBAL_STATE->device_model) {
     case DEVICE_NERDQAXE_PLUS:
+    case DEVICE_NERDOCTAXE_PLUS:
         EMC2302_get_fan_speed(&fan_speed);
         break;
     default:
@@ -77,6 +78,7 @@ void self_test(void *pvParameters)
 
     switch (GLOBAL_STATE->device_model) {
     case DEVICE_NERDQAXE_PLUS:
+    case DEVICE_NERDOCTAXE_PLUS:
         EMC2302_init(nvs_config_get_u16(NVS_CONFIG_INVERT_FAN_POLARITY, 1));
         EMC2302_set_fan_speed(1);
         break;

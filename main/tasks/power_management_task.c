@@ -44,6 +44,7 @@ static double automatic_fan_speed(float chip_temp, GlobalState *GLOBAL_STATE)
     GLOBAL_STATE->POWER_MANAGEMENT_MODULE.fan_perc = perc;
     switch (GLOBAL_STATE->device_model) {
     case DEVICE_NERDQAXE_PLUS:
+    case DEVICE_NERDOCTAXE_PLUS:
         EMC2302_set_fan_speed(perc);
         break;
     default:
@@ -88,6 +89,7 @@ void POWER_MANAGEMENT_task(void *pvParameters)
 
         switch (GLOBAL_STATE->device_model) {
         case DEVICE_NERDQAXE_PLUS:
+        case DEVICE_NERDOCTAXE_PLUS:
             float vin = TPS53647_get_vin();
             float iin = TPS53647_get_iin();
             float pin = TPS53647_get_pin();
@@ -108,6 +110,7 @@ void POWER_MANAGEMENT_task(void *pvParameters)
         if (GLOBAL_STATE->asic_model == ASIC_BM1368) {
             switch (GLOBAL_STATE->device_model) {
             case DEVICE_NERDQAXE_PLUS:
+            case DEVICE_NERDOCTAXE_PLUS:
                 // 1st tmp1075 is measuring asic temps
                 power_management->chip_temp_avg = TMP1075_read_temperature(0);
                 // 2nd tmp1075 is on the back side below power stages and inductors
@@ -133,6 +136,7 @@ void POWER_MANAGEMENT_task(void *pvParameters)
             power_management->fan_perc = fs;
             switch (GLOBAL_STATE->device_model) {
             case DEVICE_NERDQAXE_PLUS:
+            case DEVICE_NERDOCTAXE_PLUS:
                 EMC2302_set_fan_speed((float) fs / 100);
                 break;
             default:
