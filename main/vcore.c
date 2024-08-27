@@ -11,7 +11,7 @@ void VCORE_init(GlobalState *global_state)
 {
     switch (global_state->device_model) {
     case DEVICE_NERDQAXE_PLUS:
-    case DEVICE_NERDQOCTAXE_PLUS:
+    case DEVICE_NERDOCTAXE_PLUS:
         TPS53647_init();
         break;
     default:
