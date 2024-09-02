@@ -358,8 +358,8 @@ int TPS53647_init(void)
     // Slew Rate 0.68mV/us
     smb_write_byte(PMBUS_MFR_SPECIFIC_13, 0x89); // default value
 
-    // 2 phase operation
-    smb_write_byte(PMBUS_MFR_SPECIFIC_20, 0x01);
+    // 3 phase operation
+    smb_write_byte(PMBUS_MFR_SPECIFIC_20, 0x02);
 
     ESP_LOGI(TAG, "---Writing new config values to TPS53647---");
     /* set up the ON_OFF_CONFIG */
@@ -370,8 +370,8 @@ int TPS53647_init(void)
     ESP_LOGI(TAG, "Setting FREQUENCY");
     smb_write_byte(PMBUS_MFR_SPECIFIC_12, 0x20);
 
-    // 2 phase operation
-    smb_write_byte(PMBUS_MFR_SPECIFIC_20, 0x01);
+    // 3 phase operation
+    smb_write_byte(PMBUS_MFR_SPECIFIC_20, 0x02);
 
     /* temperature */
     ESP_LOGI(TAG, "Setting TEMPERATURE");
@@ -518,6 +518,8 @@ float TPS53647_get_iin(void)
 #ifdef _DEBUG_LOG_
     ESP_LOGI(TAG, "Got Iin: %2.3f A", iin);
 #endif
+
+    TPS53647_status();
     return iin;
 }
 
