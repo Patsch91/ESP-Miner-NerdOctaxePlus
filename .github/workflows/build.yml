@@ -42,12 +42,12 @@ jobs:
         0x10000 build/esp-miner.bin \
         0x410000 build/www.bin \
         0xf10000 build/ota_data_initial.bin \
-        -o esp-miner-factory-nerdqaxe-${{ env.VERSION_TAG }}.bin
+        -o esp-miner-factory-nerdoctaxe-${{ env.VERSION_TAG }}.bin
 
     - name: Upload to Existing Release
       uses: softprops/action-gh-release@v1
       with:
-        files: esp-miner-factory-nerdqaxe-${{ env.VERSION_TAG }}.bin, ./build/esp-miner.bin, ./build/www.bin
+        files: esp-miner-factory-nerdoctaxe-${{ env.VERSION_TAG }}.bin, ./build/esp-miner.bin, ./build/www.bin
         tag_name: ${{ env.VERSION_TAG }}
         token: ${{ secrets.GITHUB_TOKEN }}
       env:
