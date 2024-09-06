@@ -9,7 +9,7 @@
 | Required Platform | >= ESP-IDF v5.2.X       | Update!
 | ----------------- | --------------------- |
 
-This is a forked version from the NerdAxe miner that was modified for using on the NerdQaxe+.
+This is a forked version from the NerdAxe miner that was modified for using on the NerdOCTAXE+.
 
 Both are using ESP-miner as its base - the original firmware of Bitaxe project developed by @skot/ESP-Miner, @ben and @jhonny.
 The current fork supports LVGL library with an UI that works with 8bit parallel screen over `TTGO-TdiplayS3` board.
@@ -140,7 +140,7 @@ Starting with v2.0.0, the ESP-Miner firmware requires some basic manufacturing d
 
 The following are recommendations but it is necessary that you do have all values in your `config.cvs`file to flash properly.
 
-- recommended values for the NerdAxe 1366 (ultra)
+- recommended values for the NerdOCTAXE+
 
   ```
   key,type,encoding,value
@@ -148,7 +148,7 @@ The following are recommendations but it is necessary that you do have all value
   asicfrequency,data,u16,490
   asicvoltage,data,u16,1200
   asicmodel,data,string,BM1368
-  devicemodel,data,string,nerdqaxe_plus
+  devicemodel,data,string,nerdoctaxe_plus
   boardversion,data,string,500
   ```
 
